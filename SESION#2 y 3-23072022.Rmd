@@ -1,0 +1,61 @@
+#DATA FRAMES
+
+name \<- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune") type \<- c("Terrestrial planet", "Terrestrial planet", "Terrestrial planet", "Terrestrial planet", "Gas giant", "Gas giant", "Gas giant", "Gas giant") diameter \<- c(0.382, 0.949, 1, 0.532, 11.209, 9.449, 4.007, 3.883) rotation \<- c(58.64, -243.02, 1, 1.03, 0.41, 0.43, -0.72, 0.67) rings \<- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, TRUE, TRUE)
+
+planets_df \<- data.frame(name,type,diameter,rotation,rings) planets_df\
+\
+
+#STRUCTURE (STR)
+
+str(planets_df)
+
+#SELECTION of DATA FRAMES
+
+planets_df[1,3] planets_df [4,] planets_df[1:5,"diameter"] planets_df\$ rings planets_df\$ type
+
+rings_vector\<- planets_df\$rings planets_df[!rings_vector,]
+
+subset(planets_df,subset=diameter\<1)
+
+#SORTING "funcion order" a \<- c(100,10,1000) order(a)
+
+a[order(a)]
+
+positions \<- order(planets_df\$diameter) positions
+
+planets_df[positions,]
+
+#LISTAS \#"permite a cualquier tipo de variable ocupar una celda, sin restriccion" 
+my_vector <- 1:10 
+my_matrix <- matrix(1:9, ncol=3) 
+my_list <- list(my_vector,my_matrix)
+my_list
+
+names(my_list) <- c("VEC","MAT")
+my_list
+
+
+mov <- c("The Shining")
+act <- matrix(c("Jack Nicholson","Shelley Duvall","Danny Lloyd","Scatman Crothers","Barry Nelson"))
+
+scores <- c(4.5,5,4)
+sources <- c("IMDb1","IMDb2","IMDb3")
+comments <- c("Best Horror Film I Have Ever Seen","A truly brilliant and scary film from Stanley Kubrick","A masterpiece of psychological horror")
+rev <- data.frame(scores, sources, comments)
+
+shining_list <- list(moviename=mov,actors=act,reviews=rev)
+shining_list
+
+
+
+#SELECCION
+
+shining_list [[2]]
+
+shining_list [[2]][1]
+shining_list [[2]][5]
+
+
+
+
+
