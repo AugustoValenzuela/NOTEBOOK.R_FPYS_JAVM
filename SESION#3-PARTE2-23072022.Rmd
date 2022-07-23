@@ -1,0 +1,134 @@
+#CONDICIONEALES Y CONTROL DE FLUJO
+
+#IGUALDAD
+```{r}
+"Rchitect" !="rchitect"
+
+-6*5-2>=10
+
+T<F
+```
+#COMPARACION DE VECTORES
+```{r}
+linkedin <- c(16,9,13,5,2,17,14)
+facebook <- c(17,9,16,5,2,13,14)
+
+linkedin>15
+facebook<=5
+linkedin>facebook
+```
+#COMPARACION DE MATRICES
+```{r}
+views <- matrix(c(linkedin,facebook), nrow=2, byrow=T)
+views
+```
+#COMPARADORES LOGICOS
+```{r}
+5<=5 &2<3
+5>5|2>3
+linkedin
+last <- tail(linkedin,1)
+last>5|last<10
+last>5&last<10
+facebook<10
+linkedin>10
+linkedin>10 &facebook<10
+facebook>=12
+linkedin>=12
+linkedin>=12|facebook>=12
+
+```
+#SENTENCIA CONDICIONAL
+#IF
+```{r}
+medium<- "Linkedin"
+num_view <- 14
+if(medium=="Linkedin"){print("Showing Linkedin information")}
+
+if(num_view<15) {print("You are popular")}
+
+#else
+medium<- "Linkedin"
+num_view <- 14
+
+if(medium=="Linkedin"){
+  print("Showing Linkedin information")
+} else if(num_view <=15& num_view>10){
+  print("Your numbre of views is average")
+}
+
+
+```
+```{r}
+result <- ""
+number <- 6
+if (number<10){
+  if (number>5){
+    result<- "EXTRA SMALL"
+  } 
+  else {
+    result <- "SMALL"
+  }
+}
+
+  
+```
+
+#BUCLES---WHILE
+```{r}
+speed <- 64
+while (speed>30){
+  print("SLOW DOWN")
+  speed <- speed -7
+}
+speed
+
+```
+```{r}
+speed <- 64
+while (speed>30){
+  print(paste("Yor speed is", speed))
+  if (speed >=48) {
+    print("SLOW DOWN")
+    speed<- speed -11
+  } else {
+    print("slow")
+    speed<- speed -6
+  }
+}
+```
+#BREAK
+```{r}
+speed <- 79
+while (speed>30){
+  print(paste("your speed is", speed))
+  if (speed>80) {
+    break
+  }
+  
+  if (speed>48) {
+    print("slow down")
+    speed<- speed -11
+  } else {
+    print("slow")
+    speed <- speed -6
+  }
+}
+```
+# while de cero
+```{r}
+i <- 1
+while (i<=10){
+  
+  print(3*i)
+  if ((i*3)%%8==0){
+    break
+  }
+  i<- i+1
+}
+
+```
+
+
+
+
