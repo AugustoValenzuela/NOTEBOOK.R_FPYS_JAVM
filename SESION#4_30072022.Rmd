@@ -1,0 +1,157 @@
+#FUNCIONES
+
+```{r}
+length(linkedin)
+head(linkedin,2) #Da los primeros datos de un vector
+tail(linkedin,2)# Da las ultimas posiciones de un vector
+
+
+```
+#USANDO FUNCIONES
+#Al no agregar algun parametros extras a las funciones, por defecto rellena con null
+```{r}
+avg_li <- mean(linkedin)
+avg_li
+sum(linkedin)
+abs(linkedin)
+
+```
+#CREANDO FUNCIONES
+```{r}
+pow_two<- function(x){
+  y=x*x
+  return(y)
+}
+pow_two(2)
+pow_two(3)
+pow_two(4)
+
+pow_two1<- function(x, print_info=T){
+  y=x^2
+  if(print_info){
+    print(paste(x,"to the power equals",y))
+  }
+  return(y)
+}
+pow_two1(3,T)
+
+interpreter <- function(num_views){
+  if(num_views>15){
+    print("You are popular")
+    return(num_views)
+  }else{
+    print("Be more visible")
+    return(0)
+  }
+}
+interpreter(linkedin[2])
+
+
+interpret_all <- function(views,return_sum=T){
+  count <- 0
+  for(v in views){
+    count<- count+interpreter(v)
+    
+  }
+  if(return_sum){
+    return(count)
+  
+  } else{
+    return(NULL)
+  }
+}
+interpret_all(F,linkedin)
+```
+#CARGANDO PAQUETES EN R
+#Bloques de codigo reutilizables que se pueden instalar en R.
+#Se puede realizar desde consola o la parte visual de la herramienta.
+#TOOLS→Install packages
+```{r}
+library(ggplot2)
+mtcars
+qplot(mtcars$wt, mtcars$mpg)
+```
+
+#APPLY
+```{r}
+pioneers <- c("Gauss:1","Bayes:2","PASCAL:3","PEARSON:4")
+split_match <- strsplit(pioneers, split=":")
+split_low <- lapply(split_match,tolower)
+select_first <- function(x){
+  x[1]
+}
+names <- lapply(split_low,select_first)
+names
+select_second <- function(x){
+  x[2]
+}
+years <- lapply(split_low,select_second)
+years
+```
+
+
+#FUNCIONES  ANONIMAS
+#Funciones que no se les asigna un nombre, se puede usar con toda la familia apply, permitiendo enviar todo el esquema de dicha funcion.
+```{r}
+split_low
+names <- lapply(split_low, function(x){x[1]})
+years <- lapply(split_low, function(x){x[2]})
+
+#USANDO CON FUNCIONES CON MAS DE UN PARAMETRO
+
+select_el <- function(x,index){
+  x[index]
+}
+select_el(split_low,1)
+
+names<- lapply(split_low,select_el,1)
+years <- lapply(split_low, select_el,2)
+names
+years
+
+#sapply
+#Usado su todos los datos en una lista tienen el mismo tipo de dato, volviendolo un vector
+names<- sapply(split_low,select_el,1)
+names
+
+extreme_avg <- function(x){
+  (min(x)+max(x))/2
+}
+vec1 <- c(3,8,7,6)
+vec2 <- c(8,8,7,2)
+vec3 <- c(10,1,11,6)
+temp<- list(vec1,vec2,vec3)
+sapply(temp,extreme_avg) #devuelve un vector
+lapply(temp,extreme_avg) #devuelve una lista
+
+
+#VAPPLY
+#Se indica la clase de dato y la cantidad de datos que debe devolver.
+basics <- function(x){
+  c(min=min(x), mean=mean(x),max=max(x))
+  return(c)
+}
+temp
+vapply(temp,basics,double(1))
+
+```
+
+```{r}
+error_1 <- c(1.9,-2.6,4.0,-9.5,-3.4,7.3)
+print (sum(abs(round(error_1))))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
